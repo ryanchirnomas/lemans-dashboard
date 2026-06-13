@@ -1,219 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>24 Hours of Le Mans Social Command Center</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Mans Social Feed</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    background:#0b1220;
-    color:white;
-}
-
-header{
-    background:#111827;
-    padding:30px;
-    border-bottom:3px solid #d4002a;
-}
-
-h1{
-    font-size:40px;
-}
-
-.subtitle{
-    color:#9ca3af;
-    margin-top:8px;
-}
-
-.container{
-    max-width:1400px;
-    margin:auto;
-    padding:30px;
-}
-
-.search{
-    width:100%;
-    padding:16px;
-    border:none;
-    border-radius:10px;
-    background:#1f2937;
-    color:white;
-    font-size:18px;
-    margin-bottom:30px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:#1f2937;
-    border-radius:14px;
-    padding:22px;
-    transition:.2s;
-    border:1px solid #374151;
-}
-
-.card:hover{
-    transform:translateY(-4px);
-    border-color:#ef4444;
-}
-
-h2{
-    margin-bottom:15px;
-}
-
-.buttons{
-    display:flex;
-    gap:10px;
-}
-
-.btn{
-    flex:1;
-    text-align:center;
-    text-decoration:none;
-    padding:12px;
-    border-radius:8px;
-    color:white;
-    font-weight:bold;
-}
-
-.x{
-    background:#111;
-}
-
-.ig{
-    background:linear-gradient(45deg,#833ab4,#fd1d1d,#fcb045);
-}
-
-footer{
-    text-align:center;
-    color:#6b7280;
-    padding:40px;
-}
-</style>
-
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
 <header>
 
-<h1>🏁 24 Hours of Le Mans</h1>
+    <h1>🏁 24 Hours of Le Mans</h1>
 
-<div class="subtitle">
-Social Command Center
-</div>
+    <p>Social Feed</p>
+
+    <input
+        id="search"
+        type="text"
+        placeholder="Search drivers, teams or manufacturers..."
+    >
 
 </header>
 
-<div class="container">
+<main>
 
-<input
-class="search"
-id="search"
-placeholder="Search manufacturers..."
-onkeyup="filterCards()">
+    <div id="feed"></div>
 
-<div class="grid">
+</main>
 
-<div class="card">
-<h2>Ferrari Hypercar</h2>
-<div class="buttons">
-<a class="btn x" href="https://x.com/FerrariHypercar" target="_blank">X</a>
-<a class="btn ig" href="https://instagram.com/ferrarihypercar" target="_blank">Instagram</a>
-</div>
-</div>
-
-<div class="card">
-<h2>Porsche Motorsport</h2>
-<div class="buttons">
-<a class="btn x" href="https://x.com/PorscheRaces" target="_blank">X</a>
-<a class="btn ig" href="https://instagram.com/porschemotorsport" target="_blank">Instagram</a>
-</div>
-</div>
-
-<div class="card">
-<h2>Toyota Gazoo Racing</h2>
-<div class="buttons">
-<a class="btn x" href="https://x.com/TGR_WEC" target="_blank">X</a>
-<a class="btn ig" href="https://instagram.com/toyotagazooracing" target="_blank">Instagram</a>
-</div>
-</div>
-
-<div class="card">
-<h2>Cadillac Racing</h2>
-<div class="buttons">
-<a class="btn x" href="https://x.com/CadillacVSeries" target="_blank">X</a>
-<a class="btn ig" href="https://instagram.com/cadillacvseries" target="_blank">Instagram</a>
-</div>
-</div>
-
-<div class="card">
-<h2>BMW M Motorsport</h2>
-<div class="buttons">
-<a class="btn x" href="https://x.com/BMWMotorsport" target="_blank">X</a>
-<a class="btn ig" href="https://instagram.com/bmwmmotorsport" target="_blank">Instagram</a>
-</div>
-</div>
-
-<div class="card">
-<h2>Peugeot Sport</h2>
-<div class="buttons">
-<a class="btn x" href="https://x.com/PeugeotSport" target="_blank">X</a>
-<a class="btn ig" href="https://instagram.com/peugeotsportofficial" target="_blank">Instagram</a>
-</div>
-</div>
-
-<div class="card">
-<h2>Alpine Racing</h2>
-<div class="buttons">
-<a class="btn x" href="https://x.com/AlpineRacing" target="_blank">X</a>
-<a class="btn ig" href="https://instagram.com/alpineracing" target="_blank">Instagram</a>
-</div>
-</div>
-
-<div class="card">
-<h2>Aston Martin</h2>
-<div class="buttons">
-<a class="btn x" href="https://x.com/AstonMartin" target="_blank">X</a>
-<a class="btn ig" href="https://instagram.com/astonmartinracingofficial" target="_blank">Instagram</a>
-</div>
-</div>
-
-</div>
-
-</div>
-
-<footer>
-Built for Le Mans 2026 • Version 1
-</footer>
-
-<script>
-function filterCards(){
-
-let search=document.getElementById("search").value.toLowerCase();
-
-document.querySelectorAll(".card").forEach(card=>{
-
-card.style.display=card.innerText.toLowerCase().includes(search)
-? "block"
-: "none";
-
-});
-
-}
-</script>
+<script src="data.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
